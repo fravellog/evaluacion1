@@ -34,3 +34,28 @@ function inicioSesion() {
         }
     }
 }
+
+/* Este script se ejecuta cuando el contenido de la página ha sido cargado */
+document.addEventListener("DOMContentLoaded", function() {
+    const boton = document.getElementById("mostrarMenuBtn");
+    const menu = document.getElementById("menuAnimado");
+    const textoAleatorio = document.getElementById("textoAleatorio");
+    const frases = [
+        "¡Bienvenido a la página de prueba!",
+        "Hoy es un gran día para aprender.",
+        "Sigue adelante, lo estás haciendo bien.",
+        "¡Explora todas las funcionalidades!",
+        "Recuerda guardar tu trabajo frecuentemente."
+    ];
+    boton.addEventListener("click", function() {
+        // Selecciona una frase aleatoria
+        const random = frases[Math.floor(Math.random() * frases.length)];
+        textoAleatorio.textContent = random;
+        if (!menu.classList.contains('menu-visible')) {
+            // Muestra el menú con animación
+            menu.classList.add('menu-visible');
+        }
+        /* toggle hace visible el menú si está oculto y viceversa */
+    });
+});
+
